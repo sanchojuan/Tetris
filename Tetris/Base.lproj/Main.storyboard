@@ -883,13 +883,42 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="20" leading="8" bottom="20" trailing="8"/>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sFg-3p-gIc">
+                                <rect key="frame" x="138" y="805.66666666666663" width="117" height="20.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJv-Zu-TFY">
+                                        <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="doR-hr-Fdm">
+                                        <rect key="frame" x="21.333333333333343" y="1.9999999999999982" width="20.666666666666671" height="17.333333333333336"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-uR-Oeq">
+                                        <rect key="frame" x="43" y="0.0" width="10.666666666666664" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Juan Sancho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkk-to-LMK">
+                                        <rect key="frame" x="54.666666666666657" y="0.0" width="62.333333333333343" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iSb-rq-uv7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BLB-gs-Aye"/>
                             <constraint firstItem="iSb-rq-uv7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C5i-WI-Lyh"/>
+                            <constraint firstItem="sFg-3p-gIc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X2N-hL-0wC"/>
                             <constraint firstItem="iSb-rq-uv7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="c4V-gs-0SO"/>
+                            <constraint firstItem="sFg-3p-gIc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="8" id="qPo-y6-weA"/>
                             <constraint firstItem="iSb-rq-uv7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rIE-pI-20P"/>
                             <constraint firstItem="iSb-rq-uv7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uGl-8w-0Ve"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iSb-rq-uv7" secondAttribute="trailing" id="ziS-g0-YAj"/>
@@ -1015,6 +1044,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
