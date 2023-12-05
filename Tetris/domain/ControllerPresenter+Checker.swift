@@ -69,4 +69,51 @@ extension ControllerPresenter {
             break
         }
     }
+    
+    func canGoDown() -> Bool {
+        var allow = true
+        currentPiecePosition.enumerated().forEach { (index, item) in
+            let currentR = item[0]
+            let currentC = item[1]
+            
+            if (currentR + 1) < 16 {
+                if screenMatrix[currentR + 1][currentC] == 0 {}
+                else {
+                    if !currentPiecePosition.contains([currentR + 1,currentC]) {
+                        allow = false
+                        return
+                    }
+                }
+            }
+            else {
+                allow = false
+                return
+            }
+        }
+        return allow
+    }
+    
+    func pieceCanRotate(type: Piece, position: [[Int]]) -> Bool {
+        var allow = true
+        position.enumerated().forEach { (index, item) in
+            let currentR = item[0]
+            let currentC = item[1]
+            
+            //MARK: Check if it's out of range
+            if  currentR < 0 || currentR > 15 ||
+                currentC < 0 || currentC > 9 {
+                allow = false
+                return
+            }
+            
+            //MARK: Check if don't collapse with other pieces
+            if screenMatrix[currentR][currentC] == 1 {
+                if !currentPiecePosition.contains([currentR, currentC]) {
+                    allow = false
+                    return
+                }
+            }
+        }
+        return allow
+    }
 }

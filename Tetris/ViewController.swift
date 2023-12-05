@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     //Views
     @IBOutlet var screen: UIStackView!
+    @IBOutlet var btnRotate: UIImageView!
     
     @IBOutlet var row0: UIStackView!
     @IBOutlet var row1: UIStackView!
@@ -22,6 +23,13 @@ class ViewController: UIViewController {
     @IBOutlet var row7: UIStackView!
     @IBOutlet var row8: UIStackView!
     @IBOutlet var row9: UIStackView!
+    
+    @IBOutlet var row10: UIStackView!
+    @IBOutlet var row11: UIStackView!
+    @IBOutlet var row12: UIStackView!
+    @IBOutlet var row13: UIStackView!
+    @IBOutlet var row14: UIStackView!
+    @IBOutlet var row15: UIStackView!
     
     //MARK: Row 0
     @IBOutlet var cell00: UIView!
@@ -143,20 +151,126 @@ class ViewController: UIViewController {
     @IBOutlet var cell98: UIView!
     @IBOutlet var cell99: UIView!
     
+    //MARK: Row 10
+    @IBOutlet var cell100: UIView!
+    @IBOutlet var cell101: UIView!
+    @IBOutlet var cell102: UIView!
+    @IBOutlet var cell103: UIView!
+    @IBOutlet var cell104: UIView!
+    @IBOutlet var cell105: UIView!
+    @IBOutlet var cell106: UIView!
+    @IBOutlet var cell107: UIView!
+    @IBOutlet var cell108: UIView!
+    @IBOutlet var cell109: UIView!
+    
+    //MARK: Row 11
+    @IBOutlet var cell110: UIView!
+    @IBOutlet var cell111: UIView!
+    @IBOutlet var cell112: UIView!
+    @IBOutlet var cell113: UIView!
+    @IBOutlet var cell114: UIView!
+    @IBOutlet var cell115: UIView!
+    @IBOutlet var cell116: UIView!
+    @IBOutlet var cell117: UIView!
+    @IBOutlet var cell118: UIView!
+    @IBOutlet var cell119: UIView!
+    
+    //MARK: Row 12
+    @IBOutlet var cell120: UIView!
+    @IBOutlet var cell121: UIView!
+    @IBOutlet var cell122: UIView!
+    @IBOutlet var cell123: UIView!
+    @IBOutlet var cell124: UIView!
+    @IBOutlet var cell125: UIView!
+    @IBOutlet var cell126: UIView!
+    @IBOutlet var cell127: UIView!
+    @IBOutlet var cell128: UIView!
+    @IBOutlet var cell129: UIView!
+    
+    //MARK: Row 13
+    @IBOutlet var cell130: UIView!
+    @IBOutlet var cell131: UIView!
+    @IBOutlet var cell132: UIView!
+    @IBOutlet var cell133: UIView!
+    @IBOutlet var cell134: UIView!
+    @IBOutlet var cell135: UIView!
+    @IBOutlet var cell136: UIView!
+    @IBOutlet var cell137: UIView!
+    @IBOutlet var cell138: UIView!
+    @IBOutlet var cell139: UIView!
+    
+    //MARK: Row 14
+    @IBOutlet var cell140: UIView!
+    @IBOutlet var cell141: UIView!
+    @IBOutlet var cell142: UIView!
+    @IBOutlet var cell143: UIView!
+    @IBOutlet var cell144: UIView!
+    @IBOutlet var cell145: UIView!
+    @IBOutlet var cell146: UIView!
+    @IBOutlet var cell147: UIView!
+    @IBOutlet var cell148: UIView!
+    @IBOutlet var cell149: UIView!
+    
+    //MARK: Row 15
+    @IBOutlet var cell150: UIView!
+    @IBOutlet var cell151: UIView!
+    @IBOutlet var cell152: UIView!
+    @IBOutlet var cell153: UIView!
+    @IBOutlet var cell154: UIView!
+    @IBOutlet var cell155: UIView!
+    @IBOutlet var cell156: UIView!
+    @IBOutlet var cell157: UIView!
+    @IBOutlet var cell158: UIView!
+    @IBOutlet var cell159: UIView!
     
     //Vars
     var presenter: ControllerPresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.rotate(gesture:)))
+        btnRotate.addGestureRecognizer(tapGesture)
+        btnRotate.isUserInteractionEnabled = true
+        
         self.presenter = ControllerPresenter(controller: self)
         presenter!.startGame()
     }
+    
+    @objc private func rotate(gesture: UIGestureRecognizer) {
+        btnRotate.tintColor = .systemBlue
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.btnRotate.tintColor = .black
+        })
+        presenter!.rotate()
+    }
 
-
-    func drawCell(cell: String, fill: Bool) {
+    func drawCell(cell: String, fill: Bool, type: Piece) {
         var color : UIColor  =  .white
-        if fill { color = .systemBlue }
+        if fill {
+            switch(type){
+            case .hero:
+                color = .systemRed
+                break
+            case .teewee:
+                color = .systemBlue
+                break
+            case .smashboy:
+                color = .systemPink
+                break
+            case .orangeRicky:
+                color = .systemYellow
+                break
+            case .blueRicky:
+                color = .systemGreen
+                break
+            case .clevelandZ:
+                color = .systemOrange
+                break
+            case .rhodeIslandZ:
+                color = .systemPurple
+                break
+            }
+        }
         
         switch(cell) {
             
@@ -479,6 +593,199 @@ class ViewController: UIViewController {
         case "99":
             cell99.backgroundColor = color
             break
+            
+        //MARK: row 10
+        case "100":
+            cell100.backgroundColor = color
+            break
+        case "101":
+            cell101.backgroundColor = color
+            break
+        case "102":
+            cell102.backgroundColor = color
+            break
+        case "103":
+            cell103.backgroundColor = color
+            break
+        case "104":
+            cell104.backgroundColor = color
+            break
+        case "105":
+            cell105.backgroundColor = color
+            break
+        case "106":
+            cell106.backgroundColor = color
+            break
+        case "107":
+            cell107.backgroundColor = color
+            break
+        case "108":
+            cell108.backgroundColor = color
+            break
+        case "109":
+            cell109.backgroundColor = color
+            break
+        
+        //MARK: row 11
+        case "110":
+            cell110.backgroundColor = color
+            break
+        case "111":
+            cell111.backgroundColor = color
+            break
+        case "112":
+            cell112.backgroundColor = color
+            break
+        case "113":
+            cell113.backgroundColor = color
+            break
+        case "114":
+            cell114.backgroundColor = color
+            break
+        case "115":
+            cell115.backgroundColor = color
+            break
+        case "116":
+            cell116.backgroundColor = color
+            break
+        case "117":
+            cell117.backgroundColor = color
+            break
+        case "118":
+            cell118.backgroundColor = color
+            break
+        case "119":
+            cell119.backgroundColor = color
+            break
+            
+        //MARK: row 12
+        case "120":
+            cell120.backgroundColor = color
+            break
+        case "121":
+            cell121.backgroundColor = color
+            break
+        case "122":
+            cell122.backgroundColor = color
+            break
+        case "123":
+            cell123.backgroundColor = color
+            break
+        case "124":
+            cell124.backgroundColor = color
+            break
+        case "125":
+            cell125.backgroundColor = color
+            break
+        case "126":
+            cell126.backgroundColor = color
+            break
+        case "127":
+            cell127.backgroundColor = color
+            break
+        case "128":
+            cell128.backgroundColor = color
+            break
+        case "129":
+            cell129.backgroundColor = color
+            break
+            
+        //MARK: row 13
+        case "130":
+            cell130.backgroundColor = color
+            break
+        case "131":
+            cell131.backgroundColor = color
+            break
+        case "132":
+            cell132.backgroundColor = color
+            break
+        case "133":
+            cell133.backgroundColor = color
+            break
+        case "134":
+            cell134.backgroundColor = color
+            break
+        case "135":
+            cell135.backgroundColor = color
+            break
+        case "136":
+            cell136.backgroundColor = color
+            break
+        case "137":
+            cell137.backgroundColor = color
+            break
+        case "138":
+            cell138.backgroundColor = color
+            break
+        case "139":
+            cell139.backgroundColor = color
+            break
+            
+        //MARK: row 14
+        case "140":
+            cell140.backgroundColor = color
+            break
+        case "141":
+            cell141.backgroundColor = color
+            break
+        case "142":
+            cell142.backgroundColor = color
+            break
+        case "143":
+            cell143.backgroundColor = color
+            break
+        case "144":
+            cell144.backgroundColor = color
+            break
+        case "145":
+            cell145.backgroundColor = color
+            break
+        case "146":
+            cell146.backgroundColor = color
+            break
+        case "147":
+            cell147.backgroundColor = color
+            break
+        case "148":
+            cell148.backgroundColor = color
+            break
+        case "149":
+            cell149.backgroundColor = color
+            break
+            
+        //MARK: row 15
+        case "150":
+            cell150.backgroundColor = color
+            break
+        case "151":
+            cell151.backgroundColor = color
+            break
+        case "152":
+            cell152.backgroundColor = color
+            break
+        case "153":
+            cell153.backgroundColor = color
+            break
+        case "154":
+            cell154.backgroundColor = color
+            break
+        case "155":
+            cell155.backgroundColor = color
+            break
+        case "156":
+            cell156.backgroundColor = color
+            break
+        case "157":
+            cell157.backgroundColor = color
+            break
+        case "158":
+            cell158.backgroundColor = color
+            break
+        case "159":
+            cell159.backgroundColor = color
+            break
+            
             
         default:
             break
