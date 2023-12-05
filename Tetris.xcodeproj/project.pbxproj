@@ -17,6 +17,7 @@
 		B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */; };
 		B63637FE2B10DC6C00A98492 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637FD2B10DC6C00A98492 /* Piece.swift */; };
 		B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */; };
+		B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Generator.swift"; sourceTree = "<group>"; };
 		B63637FD2B10DC6C00A98492 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Checker.swift"; sourceTree = "<group>"; };
+		B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Rotation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */,
 				B63637FD2B10DC6C00A98492 /* Piece.swift */,
 				B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */,
+				B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				B63637E92B10CB4400A98492 /* ViewController.swift in Sources */,
 				B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */,
 				B63637E52B10CB4400A98492 /* AppDelegate.swift in Sources */,
+				B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */,
 				B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */,
 				B63637FE2B10DC6C00A98492 /* Piece.swift in Sources */,
 				B63637E72B10CB4400A98492 /* SceneDelegate.swift in Sources */,
