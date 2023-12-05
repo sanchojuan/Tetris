@@ -17,6 +17,8 @@ extension ControllerPresenter {
             case Piece.clevelandZ:
                 rotateClevelandZ()
                 break
+            case Piece.rhodeIslandZ:
+                rotateRhodeIslandZ()
             default:
                 break
             }
@@ -30,7 +32,8 @@ extension ControllerPresenter {
             currentPiecePosition = newPosition
             
             if currentPieceType == Piece.hero ||
-                currentPieceType == Piece.clevelandZ {
+                currentPieceType == Piece.clevelandZ ||
+                currentPieceType == Piece.rhodeIslandZ {
                 
                 if currentPieceRotation == 0 { currentPieceRotation = 90 }
                 else { currentPieceRotation = 0 }
@@ -104,6 +107,45 @@ extension ControllerPresenter {
             newPosition[2][1] += 1
             newPosition[3][0] -= 1
             newPosition[3][1] += 2
+            
+            changes.append((currentPiecePosition[0][0], currentPiecePosition[0][1], 0))
+            changes.append((currentPiecePosition[1][0], currentPiecePosition[1][1], 0))
+            changes.append((currentPiecePosition[2][0], currentPiecePosition[2][1], 0))
+            changes.append((currentPiecePosition[3][0], currentPiecePosition[3][1], 0))
+            changes.append((newPosition[0][0], newPosition[0][1], 1))
+            changes.append((newPosition[1][0], newPosition[1][1], 1))
+            changes.append((newPosition[2][0], newPosition[2][1], 1))
+            changes.append((newPosition[3][0], newPosition[3][1], 1))
+        }
+        tryRotation(newPosition: newPosition, changes: changes)
+    }
+    
+    func rotateRhodeIslandZ() {
+        var newPosition = currentPiecePosition
+        var changes: [(r:Int, c:Int, value:Int)] = []
+        
+        if currentPieceRotation == 0 {
+            newPosition[0][0] += 1
+            newPosition[1][0] += 2
+            newPosition[1][1] -= 1
+            newPosition[2][0] -= 1
+            newPosition[3][1] -= 1
+            
+            changes.append((currentPiecePosition[0][0], currentPiecePosition[0][1], 0))
+            changes.append((currentPiecePosition[1][0], currentPiecePosition[1][1], 0))
+            changes.append((currentPiecePosition[2][0], currentPiecePosition[2][1], 0))
+            changes.append((currentPiecePosition[3][0], currentPiecePosition[3][1], 0))
+            changes.append((newPosition[0][0], newPosition[0][1], 1))
+            changes.append((newPosition[1][0], newPosition[1][1], 1))
+            changes.append((newPosition[2][0], newPosition[2][1], 1))
+            changes.append((newPosition[3][0], newPosition[3][1], 1))
+        }
+        else if currentPieceRotation == 90 {
+            newPosition[0][0] -= 1
+            newPosition[1][0] -= 2
+            newPosition[1][1] += 1
+            newPosition[2][0] += 1
+            newPosition[3][1] += 1
             
             changes.append((currentPiecePosition[0][0], currentPiecePosition[0][1], 0))
             changes.append((currentPiecePosition[1][0], currentPiecePosition[1][1], 0))
