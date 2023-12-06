@@ -25,6 +25,9 @@ extension ControllerPresenter {
             case Piece.blueRicky:
                 rotateBlueRicky()
                 break
+            case Piece.teewee:
+                rotateTeewee()
+                break
             default:
                 break
             }
@@ -45,7 +48,8 @@ extension ControllerPresenter {
                 else { currentPieceRotation = 0 }
             }
             else if currentPieceType == Piece.orangeRicky ||
-                    currentPieceType == Piece.blueRicky {
+                    currentPieceType == Piece.blueRicky ||
+                    currentPieceType == Piece.teewee {
                 
                 if currentPieceRotation == 0 { currentPieceRotation = -90 }
                 else if currentPieceRotation == -90 { currentPieceRotation = -180 }
@@ -224,6 +228,48 @@ extension ControllerPresenter {
         }
         else if currentPieceRotation == -270 {
             newPosition[0][1] -= 1
+            newPosition[1][0] += 1
+            newPosition[2][1] += 1
+            newPosition[3][0] -= 1
+            newPosition[3][1] += 2
+        }
+        changes.append((currentPiecePosition[0][0], currentPiecePosition[0][1], 0))
+        changes.append((currentPiecePosition[1][0], currentPiecePosition[1][1], 0))
+        changes.append((currentPiecePosition[2][0], currentPiecePosition[2][1], 0))
+        changes.append((currentPiecePosition[3][0], currentPiecePosition[3][1], 0))
+        changes.append((newPosition[0][0], newPosition[0][1], 1))
+        changes.append((newPosition[1][0], newPosition[1][1], 1))
+        changes.append((newPosition[2][0], newPosition[2][1], 1))
+        changes.append((newPosition[3][0], newPosition[3][1], 1))
+        
+        tryRotation(newPosition: newPosition, changes: changes)
+    }
+    
+    func rotateTeewee() {
+        var newPosition = currentPiecePosition
+        var changes: [(r:Int, c:Int, value:Int)] = []
+        
+        if currentPieceRotation == 0 {
+            newPosition[0][0] += 1
+            newPosition[1][0] += 1
+            newPosition[1][1] += 2
+            newPosition[2][1] += 1
+            newPosition[3][0] -= 1
+        }
+        else if currentPieceRotation == -90 {
+            newPosition[1][0] -= 2
+            newPosition[2][0] -= 1
+            newPosition[2][1] -= 1
+            newPosition[3][1] -= 2
+        }
+        else if currentPieceRotation == -180 {
+            newPosition[1][1] -= 2
+            newPosition[2][0] += 1
+            newPosition[2][1] -= 1
+            newPosition[3][0] += 2
+        }
+        else if currentPieceRotation == -270 {
+            newPosition[0][0] -= 1
             newPosition[1][0] += 1
             newPosition[2][1] += 1
             newPosition[3][0] -= 1
