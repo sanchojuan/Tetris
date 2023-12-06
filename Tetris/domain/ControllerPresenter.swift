@@ -139,7 +139,7 @@ class ControllerPresenter {
     
     private func dropdownPiece() {
         if timerPiece == nil {
-            timerPiece = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            timerPiece = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
                 if self.canGoDown() {
                     var newPiecePosition : [[Int]] = []
                     for (_, item) in self.currentPiecePosition.enumerated() {
