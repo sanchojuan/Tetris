@@ -141,18 +141,7 @@ class ControllerPresenter {
         if timerPiece == nil {
             timerPiece = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
                 if self.canGoDown() {
-                    var newPiecePosition : [[Int]] = []
-                    for (_, item) in self.currentPiecePosition.enumerated() {
-                        self.changeMatrix(r: item[0] + 1, c: item[1], value: 1)
-                        newPiecePosition.append([item[0] + 1, item[1]])
-                    }
-                    //Clear old unused positions
-                    for item in self.currentPiecePosition {
-                        if !newPiecePosition.contains(item) {
-                            self.changeMatrix(r: item[0], c: item[1], value: 0)
-                        }
-                    }
-                    self.currentPiecePosition = newPiecePosition
+                    self.moveDown()
                 }
                 else {
                     print("Can't go down")

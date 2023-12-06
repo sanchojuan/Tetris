@@ -116,4 +116,46 @@ extension ControllerPresenter {
         }
         return allow
     }
+    
+    func canMoveLeft() -> Bool {
+        var allow = true
+        currentPiecePosition.enumerated().forEach { (index, item) in
+            let currentR = item[0]
+            let currentC = item[1]
+            
+            if (currentC - 1) < 0 {
+                allow = false
+                return
+            }
+            else if screenMatrix[currentR][currentC - 1]  == 1 {
+                if !currentPiecePosition.contains([currentR,currentC - 1]) {
+                    allow = false
+                    return
+                }
+            }
+        }
+        
+        return allow
+    }
+    
+    func canMoveRight() -> Bool {
+        var allow = true
+        currentPiecePosition.enumerated().forEach { (index, item) in
+            let currentR = item[0]
+            let currentC = item[1]
+            
+            if (currentC + 1) > 9 {
+                allow = false
+                return
+            }
+            else if screenMatrix[currentR][currentC + 1]  == 1 {
+                if !currentPiecePosition.contains([currentR,currentC + 1]) {
+                    allow = false
+                    return
+                }
+            }
+        }
+        
+        return allow
+    }
 }
