@@ -102,29 +102,35 @@ extension ControllerPresenter {
         
         if currentPieceRotation == 0 {
             newPosition[0][0] += 1
+            newPosition[0][1] -= 1
             newPosition[1][0] += 1
-            newPosition[1][1] += 2
-            newPosition[2][1] += 1
+            newPosition[1][1] += 1
             newPosition[3][0] -= 1
+            newPosition[3][1] -= 1
         }
         else if currentPieceRotation == -90 {
+            newPosition[0][1] += 1
             newPosition[1][0] -= 2
+            newPosition[1][1] += 1
             newPosition[2][0] -= 1
-            newPosition[2][1] -= 1
-            newPosition[3][1] -= 2
+            newPosition[3][1] -= 1
         }
         else if currentPieceRotation == -180 {
-            newPosition[1][1] -= 2
+            print(currentPiecePosition)
+            newPosition[0][1] += 1
+            newPosition[1][1] -= 1
             newPosition[2][0] += 1
-            newPosition[2][1] -= 1
             newPosition[3][0] += 2
+            newPosition[3][1] += 1
+            print(newPosition)
         }
         else if currentPieceRotation == -270 {
             newPosition[0][0] -= 1
+            newPosition[0][1] -= 1
             newPosition[1][0] += 1
-            newPosition[2][1] += 1
+            newPosition[1][1] -= 1
             newPosition[3][0] -= 1
-            newPosition[3][1] += 2
+            newPosition[3][1] += 1
         }
         
         tryRotation(newPosition: newPosition)
