@@ -11,6 +11,12 @@ class ViewController: UIViewController {
     
     //Views
     @IBOutlet var screen: UIStackView!
+    
+    @IBOutlet var upArrow: UIImageView!
+    @IBOutlet var leftArrow: UIImageView!
+    @IBOutlet var rightArrow: UIImageView!
+    @IBOutlet var downArrow: UIImageView!
+    
     @IBOutlet var btnRotate: UIImageView!
     
     @IBOutlet var row0: UIStackView!
@@ -227,13 +233,65 @@ class ViewController: UIViewController {
     var presenter: ControllerPresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.rotate(gesture:)))
-        btnRotate.addGestureRecognizer(tapGesture)
-        btnRotate.isUserInteractionEnabled = true
+        addTapGestures()
         
         self.presenter = ControllerPresenter(controller: self)
         presenter!.startGame()
+    }
+    
+    private func addTapGestures() {
+        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.rotate(gesture:)))
+        btnRotate.addGestureRecognizer(tapGesture)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.upArrow(gesture:)))
+        upArrow.addGestureRecognizer(tapGesture)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.leftArrow(gesture:)))
+        leftArrow.addGestureRecognizer(tapGesture)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.rightArrow(gesture:)))
+        rightArrow.addGestureRecognizer(tapGesture)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.downArrow(gesture:)))
+        downArrow.addGestureRecognizer(tapGesture)
+        
+        btnRotate.isUserInteractionEnabled = true
+        upArrow.isUserInteractionEnabled = true
+        leftArrow.isUserInteractionEnabled = true
+        rightArrow.isUserInteractionEnabled = true
+        downArrow.isUserInteractionEnabled = true
+    }
+    
+    @objc private func upArrow(gesture: UIGestureRecognizer) {
+        upArrow.tintColor = .systemBlue
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.upArrow.tintColor = .black
+        })
+        presenter!.moveUp()
+    }
+    
+    @objc private func leftArrow(gesture: UIGestureRecognizer) {
+        leftArrow.tintColor = .systemBlue
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.leftArrow.tintColor = .black
+        })
+        presenter!.moveLeft()
+    }
+    
+    @objc private func rightArrow(gesture: UIGestureRecognizer) {
+        rightArrow.tintColor = .systemBlue
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.rightArrow.tintColor = .black
+        })
+        presenter!.moveRight()
+    }
+    
+    @objc private func downArrow(gesture: UIGestureRecognizer) {
+        downArrow.tintColor = .systemBlue
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.downArrow.tintColor = .black
+        })
+        presenter!.moveDown()
     }
     
     @objc private func rotate(gesture: UIGestureRecognizer) {
@@ -244,34 +302,7 @@ class ViewController: UIViewController {
         presenter!.rotate()
     }
 
-    func drawCell(cell: String, fill: Bool, type: Piece) {
-        var color : UIColor  =  .white
-        if fill {
-            switch(type){
-            case .hero:
-                color = .systemRed
-                break
-            case .teewee:
-                color = .systemBlue
-                break
-            case .smashboy:
-                color = .systemPink
-                break
-            case .orangeRicky:
-                color = .systemYellow
-                break
-            case .blueRicky:
-                color = .systemGreen
-                break
-            case .clevelandZ:
-                color = .systemOrange
-                break
-            case .rhodeIslandZ:
-                color = .systemPurple
-                break
-            }
-        }
-        
+    func drawCell(cell: String, color: UIColor) {
         switch(cell) {
             
         //MARK: row 0
@@ -790,6 +821,6 @@ class ViewController: UIViewController {
         default:
             break
         }
-    }
+    }    
 }
 
