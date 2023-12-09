@@ -233,7 +233,6 @@ class ViewController: UIViewController {
     var presenter: ControllerPresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addTapGestures()
         
         self.presenter = ControllerPresenter(controller: self)
@@ -303,34 +302,7 @@ class ViewController: UIViewController {
         presenter!.rotate()
     }
 
-    func drawCell(cell: String, fill: Bool, type: Piece) {
-        var color : UIColor  =  .white
-        if fill {
-            switch(type){
-            case .hero:
-                color = .systemRed
-                break
-            case .teewee:
-                color = .systemBlue
-                break
-            case .smashboy:
-                color = .systemPink
-                break
-            case .orangeRicky:
-                color = .systemYellow
-                break
-            case .blueRicky:
-                color = .systemGreen
-                break
-            case .clevelandZ:
-                color = .systemOrange
-                break
-            case .rhodeIslandZ:
-                color = .systemPurple
-                break
-            }
-        }
-        
+    func drawCell(cell: String, color: UIColor) {
         switch(cell) {
             
         //MARK: row 0
@@ -849,6 +821,6 @@ class ViewController: UIViewController {
         default:
             break
         }
-    }
+    }    
 }
 

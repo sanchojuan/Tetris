@@ -71,6 +71,10 @@ extension ControllerPresenter {
     }
     
     func canGoDown() -> Bool {
+        if gameOver {
+            return false
+        }
+        
         var allow = true
         currentPiecePosition.enumerated().forEach { (index, item) in
             let currentR = item[0]
@@ -118,6 +122,10 @@ extension ControllerPresenter {
     }
     
     func canMoveLeft() -> Bool {
+        if gameOver {
+            return false
+        }
+        
         var allow = true
         currentPiecePosition.enumerated().forEach { (index, item) in
             let currentR = item[0]
@@ -139,6 +147,10 @@ extension ControllerPresenter {
     }
     
     func canMoveRight() -> Bool {
+        if gameOver {
+            return false
+        }
+        
         var allow = true
         currentPiecePosition.enumerated().forEach { (index, item) in
             let currentR = item[0]
@@ -157,5 +169,25 @@ extension ControllerPresenter {
         }
         
         return allow
+    }
+    
+    func checkFullLines() {
+        var completeRows: [Int] = []
+        for (index, row) in screenMatrix.enumerated() {
+            var rowIsComplete = true
+            for (subindex, _) in row.enumerated() {
+                if screenMatrix[index][subindex] == 0 {
+                    rowIsComplete = false
+                }
+            }
+            if rowIsComplete { completeRows.append(index)}
+        }
+        if completeRows.isEmpty {
+            print("No complete rows")
+        }
+        else {
+            print("Complete rows: \(completeRows)")
+            removeCompleteRows(rows: completeRows)
+        }
     }
 }

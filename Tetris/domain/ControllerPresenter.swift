@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ControllerPresenter {
     
@@ -114,13 +115,47 @@ class ControllerPresenter {
         }
     }
     
-    func changeMatrix(r: Int, c: Int, value: Int) {
+    func changeMatrix(r: Int, c: Int, value: Int, inheritColor: Bool = false) {
         screenMatrix[r][c] = value
         
-        var boolValue = false
-        if value == 1 { boolValue = true }
+        var color : UIColor  =  .white
         
-        controller.drawCell(cell: "\(r)\(c)", fill: boolValue, type: currentPieceType!)
+        if inheritColor {
+            var name = "cell\(r-1)\(c)"
+            if let cell = controller.value(forKey: name) as? UIView {
+                color = cell.backgroundColor ?? .white
+            }
+        }
+        else if value == 1 {
+            switch(currentPieceType){
+            case .hero:
+                color = .systemRed
+                break
+            case .teewee:
+                color = .systemBlue
+                break
+            case .smashboy:
+                color = .systemPink
+                break
+            case .orangeRicky:
+                color = .systemYellow
+                break
+            case .blueRicky:
+                color = .systemGreen
+                break
+            case .clevelandZ:
+                color = .systemOrange
+                break
+            case .rhodeIslandZ:
+                color = .systemPurple
+                break
+            case .none:
+                color = .white
+                break
+            }
+        }
+        
+        controller.drawCell(cell: "\(r)\(c)", color: color)
     }
     
     func changeMultipleMatrix(values: [(r:Int, c:Int, value:Int)]) {
@@ -146,6 +181,7 @@ class ControllerPresenter {
                 else {
                     print("Can't go down")
                     if !self.gameOver {
+                        self.checkFullLines()
                         self.generatePiece()
                     }
                     else {
@@ -156,5 +192,35 @@ class ControllerPresenter {
             }
         
         }
+    }
+    
+    func removeCompleteRows(rows: [Int]) {
+        for row in rows {
+            for c in 0...9 {
+                changeMatrix(r: row, c: c, value: 0)
+            }
+            dropdownMatrix(row: row)
+        }
+    }
+    
+    func dropdownMatrix(row: Int) {
+        //MARK: Clean completed row
+        for c in 0...9 {
+            changeMatrix(r: row, c: c, value: 0)
+        }
+        //Dropdown every single block one row
+        var currentRow = row
+        while currentRow > 0 {
+            for c in 0...9 {
+                if screenMatrix[currentRow - 1][c] == 1 {
+                    changeMatrix(r: currentRow, c: c, value: 1, inheritColor: true)
+                }
+                else {
+                    changeMatrix(r: currentRow, c: c, value: 0)
+                }
+            }
+            currentRow -= 1
+        }
+        
     }
 }
