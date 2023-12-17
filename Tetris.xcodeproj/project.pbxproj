@@ -17,6 +17,7 @@
 		B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */; };
 		B63637FE2B10DC6C00A98492 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637FD2B10DC6C00A98492 /* Piece.swift */; };
 		B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */; };
+		B6566B142B285920007668D9 /* ControllerPresenter+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6566B132B285920007668D9 /* ControllerPresenter+Preview.swift */; };
 		B669E5A82B20E92100C7EFE8 /* ControllerPresenter+Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */; };
 		B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Generator.swift"; sourceTree = "<group>"; };
 		B63637FD2B10DC6C00A98492 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Checker.swift"; sourceTree = "<group>"; };
+		B6566B132B285920007668D9 /* ControllerPresenter+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Preview.swift"; sourceTree = "<group>"; };
 		B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Movement.swift"; sourceTree = "<group>"; };
 		B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Rotation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,11 +70,10 @@
 		B63637E32B10CB4400A98492 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				B6566B102B28532B007668D9 /* view */,
 				B63637FA2B10DC0300A98492 /* domain */,
 				B63637E42B10CB4400A98492 /* AppDelegate.swift */,
 				B63637E62B10CB4400A98492 /* SceneDelegate.swift */,
-				B63637E82B10CB4400A98492 /* ViewController.swift */,
-				B63637EA2B10CB4400A98492 /* Main.storyboard */,
 				B63637ED2B10CB4600A98492 /* Assets.xcassets */,
 				B63637EF2B10CB4600A98492 /* LaunchScreen.storyboard */,
 				B63637F22B10CB4600A98492 /* Info.plist */,
@@ -89,8 +90,18 @@
 				B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */,
 				B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */,
 				B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */,
+				B6566B132B285920007668D9 /* ControllerPresenter+Preview.swift */,
 			);
 			path = domain;
+			sourceTree = "<group>";
+		};
+		B6566B102B28532B007668D9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B63637EA2B10CB4400A98492 /* Main.storyboard */,
+				B63637E82B10CB4400A98492 /* ViewController.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63637F92B10DB8500A98492 /* ControllerPresenter.swift in Sources */,
+				B6566B142B285920007668D9 /* ControllerPresenter+Preview.swift in Sources */,
 				B63637E92B10CB4400A98492 /* ViewController.swift in Sources */,
 				B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */,
 				B63637E52B10CB4400A98492 /* AppDelegate.swift in Sources */,

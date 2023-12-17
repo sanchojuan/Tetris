@@ -11,9 +11,20 @@ extension ControllerPresenter {
     
     func generatePiece() {
         let piece: Piece = selectRandomPiece()
-        drawNewPiece(piece: piece)
-        //drawNewPiece(piece: Piece.teewee)
-        currentPieceRotation = 0
+        
+        if hasPreview {
+            drawNewPiece(piece: previewPieceType!)
+            //drawNewPiece(piece: Piece.teewee)
+            currentPieceRotation = 0
+            previewPieceType = piece
+            drawPreview()
+        }
+        else {
+            previewPieceType = piece
+            hasPreview = true
+            drawPreview()
+            generatePiece()
+        }
     }
     
     private func selectRandomPiece() -> Piece {
