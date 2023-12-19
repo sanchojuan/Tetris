@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B614B91A2B2FBCE9006983BF /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B614B9192B2FBCE9006983BF /* Menu.storyboard */; };
+		B614B91C2B2FBDA1006983BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614B91B2B2FBDA1006983BF /* MenuController.swift */; };
+		B614B91E2B30D99D006983BF /* GameOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B614B91D2B30D99D006983BF /* GameOver.storyboard */; };
+		B614B9202B30D9BD006983BF /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614B91F2B30D9BD006983BF /* GameOverController.swift */; };
+		B614B9232B30E0F8006983BF /* GameOverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614B9222B30E0F8006983BF /* GameOverPresenter.swift */; };
+		B614B9262B30E136006983BF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614B9252B30E136006983BF /* UserDefaultsManager.swift */; };
 		B63637E52B10CB4400A98492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637E42B10CB4400A98492 /* AppDelegate.swift */; };
 		B63637E72B10CB4400A98492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637E62B10CB4400A98492 /* SceneDelegate.swift */; };
 		B63637E92B10CB4400A98492 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63637E82B10CB4400A98492 /* ViewController.swift */; };
@@ -23,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B614B9192B2FBCE9006983BF /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		B614B91B2B2FBDA1006983BF /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		B614B91D2B30D99D006983BF /* GameOver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameOver.storyboard; sourceTree = "<group>"; };
+		B614B91F2B30D9BD006983BF /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
+		B614B9222B30E0F8006983BF /* GameOverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverPresenter.swift; sourceTree = "<group>"; };
+		B614B9252B30E136006983BF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		B63637E12B10CB4400A98492 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63637E42B10CB4400A98492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63637E62B10CB4400A98492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +63,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B614B9212B30E0DC006983BF /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				B614B9222B30E0F8006983BF /* GameOverPresenter.swift */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+		B614B9242B30E125006983BF /* data */ = {
+			isa = PBXGroup;
+			children = (
+				B614B9252B30E136006983BF /* UserDefaultsManager.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		B63637D82B10CB4400A98492 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +98,7 @@
 		B63637E32B10CB4400A98492 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				B614B9242B30E125006983BF /* data */,
 				B6566B102B28532B007668D9 /* view */,
 				B63637FA2B10DC0300A98492 /* domain */,
 				B63637E42B10CB4400A98492 /* AppDelegate.swift */,
@@ -84,6 +113,7 @@
 		B63637FA2B10DC0300A98492 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				B614B9212B30E0DC006983BF /* GameOver */,
 				B63637F82B10DB8500A98492 /* ControllerPresenter.swift */,
 				B63637FB2B10DC2C00A98492 /* ControllerPresenter+Generator.swift */,
 				B63637FD2B10DC6C00A98492 /* Piece.swift */,
@@ -100,6 +130,10 @@
 			children = (
 				B63637EA2B10CB4400A98492 /* Main.storyboard */,
 				B63637E82B10CB4400A98492 /* ViewController.swift */,
+				B614B9192B2FBCE9006983BF /* Menu.storyboard */,
+				B614B91B2B2FBDA1006983BF /* MenuController.swift */,
+				B614B91D2B30D99D006983BF /* GameOver.storyboard */,
+				B614B91F2B30D9BD006983BF /* GameOverController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -162,9 +196,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B614B91E2B30D99D006983BF /* GameOver.storyboard in Resources */,
 				B63637F12B10CB4600A98492 /* LaunchScreen.storyboard in Resources */,
 				B63637EE2B10CB4600A98492 /* Assets.xcassets in Resources */,
 				B63637EC2B10CB4400A98492 /* Main.storyboard in Resources */,
+				B614B91A2B2FBCE9006983BF /* Menu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,14 +212,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63637F92B10DB8500A98492 /* ControllerPresenter.swift in Sources */,
+				B614B9202B30D9BD006983BF /* GameOverController.swift in Sources */,
 				B6566B142B285920007668D9 /* ControllerPresenter+Preview.swift in Sources */,
 				B63637E92B10CB4400A98492 /* ViewController.swift in Sources */,
 				B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */,
 				B63637E52B10CB4400A98492 /* AppDelegate.swift in Sources */,
+				B614B9232B30E0F8006983BF /* GameOverPresenter.swift in Sources */,
+				B614B91C2B2FBDA1006983BF /* MenuController.swift in Sources */,
 				B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */,
 				B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */,
 				B63637FE2B10DC6C00A98492 /* Piece.swift in Sources */,
 				B669E5A82B20E92100C7EFE8 /* ControllerPresenter+Movement.swift in Sources */,
+				B614B9262B30E136006983BF /* UserDefaultsManager.swift in Sources */,
 				B63637E72B10CB4400A98492 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

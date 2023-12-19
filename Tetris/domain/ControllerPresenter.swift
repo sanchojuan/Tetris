@@ -239,7 +239,6 @@ class ControllerPresenter {
             self.lines = self.lines % 5
         }
         controller.setLevel(level: self.level, lines: self.lines)
-        
     }
     
     func updateSpeed() {

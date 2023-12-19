@@ -913,7 +913,10 @@ class ViewController: UIViewController {
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            //MARK: to do: game over screen
+            let storyboard = UIStoryboard(name: "GameOver", bundle: nil)
+            let gameOverController = storyboard.instantiateViewController(withIdentifier: "GameOverController") as! GameOverController
+            gameOverController.score = self.presenter!.level
+            self.present(gameOverController, animated: true)
         })
         
         
