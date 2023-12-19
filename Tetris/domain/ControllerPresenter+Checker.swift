@@ -188,6 +188,8 @@ extension ControllerPresenter {
         else {
             print("Complete rows: \(completeRows)")
             removeCompleteRows(rows: completeRows)
+            updateLevel(lines: completeRows.count)
+            updateSpeed()
         }
     }
 }

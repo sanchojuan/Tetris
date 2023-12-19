@@ -16,6 +16,9 @@ class ControllerPresenter {
     var timerPiece: Timer?
     var gameOver = false
     
+    var hasPreview = false
+    var previewPieceType: Piece?
+    
     var screenMatrix =
         [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -39,6 +42,10 @@ class ControllerPresenter {
     var currentPiecePosition: [[Int]] = [[]]
     var currentPieceType: Piece?
     var currentPieceRotation: Int = 0
+    
+    var level: Int = 1
+    var lines: Int = 0
+    var speed: Double = 1
     
     init(controller: ViewController) {
         self.controller = controller
@@ -112,6 +119,7 @@ class ControllerPresenter {
             print("Game over")
             timerPiece?.invalidate()
             timerPiece = nil
+            controller.showGameOver()
         }
     }
     
@@ -121,7 +129,7 @@ class ControllerPresenter {
         var color : UIColor  =  .white
         
         if inheritColor {
-            var name = "cell\(r-1)\(c)"
+            let name = "cell\(r-1)\(c)"
             if let cell = controller.value(forKey: name) as? UIView {
                 color = cell.backgroundColor ?? .white
             }
@@ -174,7 +182,7 @@ class ControllerPresenter {
     
     private func dropdownPiece() {
         if timerPiece == nil {
-            timerPiece = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            timerPiece = Timer.scheduledTimer(withTimeInterval: speed, repeats: true) { timer in
                 if self.canGoDown() {
                     self.moveDown()
                 }
@@ -222,5 +230,24 @@ class ControllerPresenter {
             currentRow -= 1
         }
         
+    }
+    
+    func updateLevel(lines: Int) {
+        self.lines += lines
+        if self.lines > 4 {
+            self.level  += self.lines / 5
+            self.lines = self.lines % 5
+        }
+        controller.setLevel(level: self.level, lines: self.lines)
+    }
+    
+    func updateSpeed() {
+        let newSpeed = 1.0/Double(self.level)
+        if newSpeed != self.speed {
+            self.speed = newSpeed
+            self.timerPiece?.invalidate()
+            self.timerPiece = nil
+            dropdownPiece()
+        }
     }
 }

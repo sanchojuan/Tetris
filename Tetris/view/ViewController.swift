@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     //Views
+    @IBOutlet var level: UILabel!
+    @IBOutlet var lines: UILabel!
     @IBOutlet var screen: UIStackView!
     
     @IBOutlet var upArrow: UIImageView!
@@ -18,6 +20,23 @@ class ViewController: UIViewController {
     @IBOutlet var downArrow: UIImageView!
     
     @IBOutlet var btnRotate: UIImageView!
+    @IBOutlet var gameOver: UILabel!
+    
+    //MARK: Preview
+    
+    @IBOutlet var preview00: UIView!
+    @IBOutlet var preview01: UIView!
+    @IBOutlet var preview02: UIView!
+    
+    @IBOutlet var preview10: UIView!
+    @IBOutlet var preview11: UIView!
+    @IBOutlet var preview12: UIView!
+    
+    @IBOutlet var preview20: UIView!
+    @IBOutlet var preview21: UIView!
+    @IBOutlet var preview22: UIView!
+    
+    //MARK: Screen
     
     @IBOutlet var row0: UIStackView!
     @IBOutlet var row1: UIStackView!
@@ -235,6 +254,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addTapGestures()
         
+        gameOver.isHidden = true
+        
         self.presenter = ControllerPresenter(controller: self)
         presenter!.startGame()
     }
@@ -304,6 +325,40 @@ class ViewController: UIViewController {
 
     func drawCell(cell: String, color: UIColor) {
         switch(cell) {
+            
+        //MARK: preview
+        //Row 0
+        case "preview00":
+            preview00.backgroundColor = color
+            break
+        case "preview01":
+            preview01.backgroundColor = color
+            break
+        case "preview02":
+            preview02.backgroundColor = color
+            break
+            
+        //Row 1
+        case "preview10":
+            preview10.backgroundColor = color
+            break
+        case "preview11":
+            preview11.backgroundColor = color
+            break
+        case "preview12":
+            preview12.backgroundColor = color
+            break
+            
+        //Row 2
+        case "preview20":
+            preview20.backgroundColor = color
+            break
+        case "preview21":
+            preview21.backgroundColor = color
+            break
+        case "preview22":
+            preview22.backgroundColor = color
+            break
             
         //MARK: row 0
         case "00":
@@ -822,5 +877,55 @@ class ViewController: UIViewController {
             break
         }
     }    
+    
+    
+    func setLevel(level: Int, lines: Int) {
+        self.level.text = "\(level)"
+        self.lines.text = "\(lines)"
+    }
+    
+    func showGameOver() {
+        UIView.animate(withDuration: 0, delay: 0, options: [.curveLinear], animations: {
+            self.gameOver.isHidden = false
+            }, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+                self.gameOver.alpha = 0
+                }, completion: nil)
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+                self.gameOver.alpha = 1
+                }, completion: nil)
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+                self.gameOver.alpha = 0
+                }, completion: nil)
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+                self.gameOver.alpha = 1
+                }, completion: nil)
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            let storyboard = UIStoryboard(name: "GameOver", bundle: nil)
+            let gameOverController = storyboard.instantiateViewController(withIdentifier: "GameOverController") as! GameOverController
+            gameOverController.score = self.presenter!.level
+            self.present(gameOverController, animated: true)
+        })
+        
+        
+        leftArrow.isUserInteractionEnabled = false
+        upArrow.isUserInteractionEnabled = false
+        rightArrow.isUserInteractionEnabled = false
+        downArrow.isUserInteractionEnabled = false
+        btnRotate.isUserInteractionEnabled = false
+    
+    }
 }
 
