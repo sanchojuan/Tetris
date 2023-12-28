@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class OutlinedButton: UIButton {
-    
+        
     override var isHighlighted: Bool {
         get {
             return super.isHighlighted
@@ -19,10 +19,14 @@ class OutlinedButton: UIButton {
                 backgroundColor = UIColor.systemGray6
             }
             else {
-                backgroundColor = UIColor.white
+                backgroundColor = getBg()
             }
             super.isHighlighted = newValue
         }
+    }
+    
+    func getBg() -> UIColor {
+        return UIColor.white
     }
     
     override func awakeFromNib() {
@@ -35,15 +39,21 @@ class OutlinedButton: UIButton {
 }
 
 class OutlinedPrimaryButton: OutlinedButton {
+    
+    var myBackgroundColor: CGColor? = UIColor.white.cgColor
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .white
+        backgroundColor = getBg()
     }
 }
 
 class OutlinedSecondaryButton: OutlinedButton {
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .systemGray5
+        backgroundColor = getBg()
+    }
+    
+    override func getBg() -> UIColor {
+        return UIColor.systemGray5
     }
 }
