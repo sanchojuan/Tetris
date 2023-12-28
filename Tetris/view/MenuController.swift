@@ -9,9 +9,14 @@ import UIKit
 
 class MenuController: UIViewController {
 
+    @IBOutlet var btnStart: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.btnStart.layer.borderColor = UIColor.black.cgColor
+        self.btnStart.layer.borderWidth = 1
+        
     }
     
 
