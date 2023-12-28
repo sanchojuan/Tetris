@@ -13,10 +13,6 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.btnStart.layer.borderColor = UIColor.black.cgColor
-        self.btnStart.layer.borderWidth = 1
-        
     }
     
 

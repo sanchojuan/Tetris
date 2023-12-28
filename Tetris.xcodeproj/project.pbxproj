@@ -25,6 +25,7 @@
 		B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */; };
 		B6566B142B285920007668D9 /* ControllerPresenter+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6566B132B285920007668D9 /* ControllerPresenter+Preview.swift */; };
 		B669E5A82B20E92100C7EFE8 /* ControllerPresenter+Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */; };
+		B69449F72B3D02CB00E03DE5 /* OutlinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69449F62B3D02CB00E03DE5 /* OutlinedButton.swift */; };
 		B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		B64FB33A2B117C58003553BA /* ControllerPresenter+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Checker.swift"; sourceTree = "<group>"; };
 		B6566B132B285920007668D9 /* ControllerPresenter+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Preview.swift"; sourceTree = "<group>"; };
 		B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Movement.swift"; sourceTree = "<group>"; };
+		B69449F62B3D02CB00E03DE5 /* OutlinedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedButton.swift; sourceTree = "<group>"; };
 		B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Rotation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				B614B91B2B2FBDA1006983BF /* MenuController.swift */,
 				B614B91D2B30D99D006983BF /* GameOver.storyboard */,
 				B614B91F2B30D9BD006983BF /* GameOverController.swift */,
+				B69449F62B3D02CB00E03DE5 /* OutlinedButton.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				B6566B142B285920007668D9 /* ControllerPresenter+Preview.swift in Sources */,
 				B63637E92B10CB4400A98492 /* ViewController.swift in Sources */,
 				B63637FC2B10DC2C00A98492 /* ControllerPresenter+Generator.swift in Sources */,
+				B69449F72B3D02CB00E03DE5 /* OutlinedButton.swift in Sources */,
 				B63637E52B10CB4400A98492 /* AppDelegate.swift in Sources */,
 				B614B9232B30E0F8006983BF /* GameOverPresenter.swift in Sources */,
 				B614B91C2B2FBDA1006983BF /* MenuController.swift in Sources */,

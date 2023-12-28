@@ -16,15 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7H-kK-cIs">
-                                <rect key="frame" x="50" y="673" width="293" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7H-kK-cIs" customClass="OutlinedPrimaryButton" customModule="Tetris" customModuleProvider="target">
+                                <rect key="frame" x="75" y="662.66666666666663" width="243" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="zja-QY-yV9"/>
+                                    <constraint firstAttribute="height" constant="40" id="stp-LO-aBz"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="START" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="start:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Age-dd-2OL"/>
@@ -71,8 +74,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="g7H-kK-cIs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="3Fg-hd-Uxh"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g7H-kK-cIs" secondAttribute="trailing" constant="50" id="LXA-l6-mwn"/>
+                            <constraint firstItem="g7H-kK-cIs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="75" id="3Fg-hd-Uxh"/>
+                            <constraint firstItem="Mc8-Cj-QQ9" firstAttribute="top" secondItem="g7H-kK-cIs" secondAttribute="bottom" constant="75" id="HV4-8D-8qU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g7H-kK-cIs" secondAttribute="trailing" constant="75" id="LXA-l6-mwn"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="top" secondItem="uh6-TS-F93" secondAttribute="bottom" constant="50" id="VAV-su-seg"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="50" id="Woc-Lr-ovy"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xab-Fi-qrF"/>
@@ -80,7 +84,6 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Mc8-Cj-QQ9" secondAttribute="bottom" constant="20" id="ZGE-Hq-ifR"/>
                             <constraint firstAttribute="trailing" secondItem="XUb-6i-7XV" secondAttribute="trailing" constant="50" id="fne-ym-fia"/>
                             <constraint firstItem="Mc8-Cj-QQ9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lg4-92-8DT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="g7H-kK-cIs" secondAttribute="bottom" constant="100" id="nqJ-f6-yi9"/>
                             <constraint firstItem="uh6-TS-F93" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="75" id="p6D-eh-751"/>
                         </constraints>
                     </view>
