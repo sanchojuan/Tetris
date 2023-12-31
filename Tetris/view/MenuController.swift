@@ -9,9 +9,14 @@ import UIKit
 
 class MenuController: UIViewController {
 
+    @IBOutlet var versionNumber: UILabel!
+    @IBOutlet var btnStart: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        versionNumber.text = "v\(version)"
     }
     
 

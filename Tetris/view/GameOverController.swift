@@ -9,6 +9,9 @@ import UIKit
 
 class GameOverController: UIViewController {
 
+    @IBOutlet var containerScore: UIView!
+    @IBOutlet var containerMaxScore: UIView!
+    
     @IBOutlet var lbScore: UILabel!
     @IBOutlet var lbRecord: UILabel!
     @IBOutlet var lbNewRecord: UILabel!
@@ -22,6 +25,8 @@ class GameOverController: UIViewController {
         super.viewDidLoad()
         
         lbNewRecord.isHidden = true
+        containerScore.layer.cornerRadius = 8
+        containerMaxScore.layer.cornerRadius = 8
         
         presenter = GameOverPresenter()
 
