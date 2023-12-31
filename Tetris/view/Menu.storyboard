@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7H-kK-cIs" customClass="OutlinedPrimaryButton" customModule="Tetris" customModuleProvider="target">
-                                <rect key="frame" x="75" y="662.66666666666663" width="243" height="40"/>
+                                <rect key="frame" x="75" y="654.66666666666663" width="243" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="stp-LO-aBz"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mc8-Cj-QQ9">
-                                <rect key="frame" x="111.66666666666667" y="777.66666666666663" width="169.66666666666663" height="20.333333333333371"/>
+                                <rect key="frame" x="111.66666666666667" y="769.66666666666663" width="169.66666666666663" height="20.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFl-Dz-Var">
                                         <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="20.333333333333332"/>
@@ -70,25 +70,34 @@
                                     <constraint firstAttribute="height" constant="75" id="eHU-4B-Zds"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-ta-Iq0">
+                                <rect key="frame" x="166.33333333333334" y="798" width="60.333333333333343" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="g7H-kK-cIs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="75" id="3Fg-hd-Uxh"/>
+                            <constraint firstItem="8hd-ta-Iq0" firstAttribute="top" secondItem="Mc8-Cj-QQ9" secondAttribute="bottom" constant="8" id="Ffy-zf-UZD"/>
                             <constraint firstItem="Mc8-Cj-QQ9" firstAttribute="top" secondItem="g7H-kK-cIs" secondAttribute="bottom" constant="75" id="HV4-8D-8qU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g7H-kK-cIs" secondAttribute="trailing" constant="75" id="LXA-l6-mwn"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="top" secondItem="uh6-TS-F93" secondAttribute="bottom" constant="50" id="VAV-su-seg"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="50" id="Woc-Lr-ovy"/>
                             <constraint firstItem="XUb-6i-7XV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xab-Fi-qrF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uh6-TS-F93" secondAttribute="trailing" constant="75" id="Z7Z-mM-yZj"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Mc8-Cj-QQ9" secondAttribute="bottom" constant="20" id="ZGE-Hq-ifR"/>
                             <constraint firstAttribute="trailing" secondItem="XUb-6i-7XV" secondAttribute="trailing" constant="50" id="fne-ym-fia"/>
                             <constraint firstItem="Mc8-Cj-QQ9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lg4-92-8DT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8hd-ta-Iq0" secondAttribute="bottom" constant="8" id="mZy-0c-T0X"/>
                             <constraint firstItem="uh6-TS-F93" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="75" id="p6D-eh-751"/>
+                            <constraint firstItem="8hd-ta-Iq0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vle-Xp-rFm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnStart" destination="g7H-kK-cIs" id="lLM-9u-E0H"/>
+                        <outlet property="versionNumber" destination="8hd-ta-Iq0" id="zz5-F0-fMn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

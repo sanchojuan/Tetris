@@ -14,7 +14,32 @@ extension ControllerPresenter {
         clearPreview()
         
         if !gameOver {
+            var imageName = ""
             switch(previewPieceType!) {
+            case Piece.hero:
+                imageName = "hero"
+                break
+            case Piece.teewee:
+                imageName = "teewee"
+                break
+            case Piece.smashboy:
+                imageName = "smashboy"
+                break
+            case Piece.orangeRicky:
+                imageName = "orangeRicky"
+                break
+            case Piece.blueRicky:
+                imageName = "blueRicky"
+                break
+            case Piece.clevelandZ:
+                imageName = "clevelandZ"
+                break
+            case Piece.rhodeIslandZ:
+                imageName = "rhodeIslandZ"
+                break
+            }
+            controller.drawPreview(imageName: imageName)
+            /*switch(previewPieceType!) {
             case Piece.hero:
                 changePreviewMatrix(r: 1, c: 0)
                 changePreviewMatrix(r: 1, c: 1)
@@ -56,12 +81,12 @@ extension ControllerPresenter {
                 changePreviewMatrix(r: 1, c: 0)
                 changePreviewMatrix(r: 1, c: 1)
                 break
-            }
+            }*/
         }
     }
     
     func clearPreview() {
-        let color : UIColor  =  .white
+        let color : UIColor  =  .systemGray5
         
         for i in 0...3 {
             for j in 0...3 {
@@ -71,10 +96,10 @@ extension ControllerPresenter {
     }
     
     func changePreviewMatrix(r: Int, c: Int) {
-        var color : UIColor  =  .white
+        var color : UIColor  =  .systemGray5
         
         switch(previewPieceType){
-        case .hero:
+        /*case .hero:
             color = .systemRed
             break
         case .teewee:
@@ -94,10 +119,12 @@ extension ControllerPresenter {
             break
         case .rhodeIslandZ:
             color = .systemPurple
-            break
+            break*/
         case .none:
-            color = .white
+            color = .systemGray5
             break
+        default:
+            color = .black
         }
         
         controller.drawCell(cell: "preview\(r)\(c)", color: color)

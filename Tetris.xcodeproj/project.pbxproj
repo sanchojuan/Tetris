@@ -27,6 +27,7 @@
 		B669E5A82B20E92100C7EFE8 /* ControllerPresenter+Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */; };
 		B69449F72B3D02CB00E03DE5 /* OutlinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69449F62B3D02CB00E03DE5 /* OutlinedButton.swift */; };
 		B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */; };
+		B6B594D72B417E2400DA7632 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B594D62B417E2400DA7632 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B669E5A72B20E92000C7EFE8 /* ControllerPresenter+Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Movement.swift"; sourceTree = "<group>"; };
 		B69449F62B3D02CB00E03DE5 /* OutlinedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedButton.swift; sourceTree = "<group>"; };
 		B6ACA4872B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllerPresenter+Rotation.swift"; sourceTree = "<group>"; };
+		B6B594D62B417E2400DA7632 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		B6566B102B28532B007668D9 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B6B594D62B417E2400DA7632 /* CircularProgressView.swift */,
 				B63637EA2B10CB4400A98492 /* Main.storyboard */,
 				B63637E82B10CB4400A98492 /* ViewController.swift */,
 				B614B9192B2FBCE9006983BF /* Menu.storyboard */,
@@ -224,6 +227,7 @@
 				B614B9232B30E0F8006983BF /* GameOverPresenter.swift in Sources */,
 				B614B91C2B2FBDA1006983BF /* MenuController.swift in Sources */,
 				B6ACA4882B1E3F1900B7A938 /* ControllerPresenter+Rotation.swift in Sources */,
+				B6B594D72B417E2400DA7632 /* CircularProgressView.swift in Sources */,
 				B64FB33B2B117C58003553BA /* ControllerPresenter+Checker.swift in Sources */,
 				B63637FE2B10DC6C00A98492 /* Piece.swift in Sources */,
 				B669E5A82B20E92100C7EFE8 /* ControllerPresenter+Movement.swift in Sources */,

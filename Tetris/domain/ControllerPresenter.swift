@@ -126,17 +126,17 @@ class ControllerPresenter {
     func changeMatrix(r: Int, c: Int, value: Int, inheritColor: Bool = false) {
         screenMatrix[r][c] = value
         
-        var color : UIColor  =  .white
+        var color : UIColor  =  .systemGray5
         
         if inheritColor {
             let name = "cell\(r-1)\(c)"
             if let cell = controller.value(forKey: name) as? UIView {
-                color = cell.backgroundColor ?? .white
+                color = cell.backgroundColor ?? .systemGray5
             }
         }
         else if value == 1 {
             switch(currentPieceType){
-            case .hero:
+            /*case .hero:
                 color = .systemRed
                 break
             case .teewee:
@@ -156,10 +156,12 @@ class ControllerPresenter {
                 break
             case .rhodeIslandZ:
                 color = .systemPurple
-                break
+                break*/
             case .none:
-                color = .white
+                color = .systemGray5
                 break
+            default:
+                color = .black
             }
         }
         
@@ -187,7 +189,6 @@ class ControllerPresenter {
                     self.moveDown()
                 }
                 else {
-                    print("Can't go down")
                     if !self.gameOver {
                         self.checkFullLines()
                         self.generatePiece()

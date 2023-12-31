@@ -10,8 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     //Views
+    @IBOutlet var levelProgress: CircularProgressView!
     @IBOutlet var level: UILabel!
-    @IBOutlet var lines: UILabel!
     @IBOutlet var screen: UIStackView!
     
     @IBOutlet var upArrow: UIImageView!
@@ -21,8 +21,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var btnRotate: UIImageView!
     @IBOutlet var gameOver: UILabel!
+    @IBOutlet var gameOverBg: UIView!
     
     //MARK: Preview
+    
+    @IBOutlet var preview: UIImageView!
     
     @IBOutlet var preview00: UIView!
     @IBOutlet var preview01: UIView!
@@ -254,7 +257,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addTapGestures()
         
+        levelProgress.trackColor = .systemGray6
+        levelProgress.progressColor = UIColor.black
+        
         gameOver.isHidden = true
+        gameOverBg.isHidden = true
         
         self.presenter = ControllerPresenter(controller: self)
         presenter!.startGame()
@@ -284,7 +291,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func upArrow(gesture: UIGestureRecognizer) {
-        upArrow.tintColor = .systemBlue
+        upArrow.tintColor = .systemGray
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.upArrow.tintColor = .black
         })
@@ -292,7 +299,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func leftArrow(gesture: UIGestureRecognizer) {
-        leftArrow.tintColor = .systemBlue
+        leftArrow.tintColor = .systemGray
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.leftArrow.tintColor = .black
         })
@@ -300,7 +307,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func rightArrow(gesture: UIGestureRecognizer) {
-        rightArrow.tintColor = .systemBlue
+        rightArrow.tintColor = .systemGray
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.rightArrow.tintColor = .black
         })
@@ -308,7 +315,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func downArrow(gesture: UIGestureRecognizer) {
-        downArrow.tintColor = .systemBlue
+        downArrow.tintColor = .systemGray
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.downArrow.tintColor = .black
         })
@@ -316,49 +323,19 @@ class ViewController: UIViewController {
     }
     
     @objc private func rotate(gesture: UIGestureRecognizer) {
-        btnRotate.tintColor = .systemBlue
+        btnRotate.tintColor = .systemGray
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.btnRotate.tintColor = .black
         })
         presenter!.rotate()
     }
+    
+    func drawPreview(imageName: String) {
+        preview.image = UIImage(named: imageName)
+    }
 
     func drawCell(cell: String, color: UIColor) {
         switch(cell) {
-            
-        //MARK: preview
-        //Row 0
-        case "preview00":
-            preview00.backgroundColor = color
-            break
-        case "preview01":
-            preview01.backgroundColor = color
-            break
-        case "preview02":
-            preview02.backgroundColor = color
-            break
-            
-        //Row 1
-        case "preview10":
-            preview10.backgroundColor = color
-            break
-        case "preview11":
-            preview11.backgroundColor = color
-            break
-        case "preview12":
-            preview12.backgroundColor = color
-            break
-            
-        //Row 2
-        case "preview20":
-            preview20.backgroundColor = color
-            break
-        case "preview21":
-            preview21.backgroundColor = color
-            break
-        case "preview22":
-            preview22.backgroundColor = color
-            break
             
         //MARK: row 0
         case "00":
@@ -881,12 +858,22 @@ class ViewController: UIViewController {
     
     func setLevel(level: Int, lines: Int) {
         self.level.text = "\(level)"
-        self.lines.text = "\(lines)"
+        
+        let progress: Float = switch(lines) {
+        case 1: 0.2
+        case 2: 0.4
+        case 3: 0.6
+        case 4: 0.8
+        case 5: 1.0
+        default: 0
+        }
+        levelProgress.setProgressWithAnimation(value: progress)
     }
     
     func showGameOver() {
         UIView.animate(withDuration: 0, delay: 0, options: [.curveLinear], animations: {
             self.gameOver.isHidden = false
+            self.gameOverBg.isHidden = false
             }, completion: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -919,13 +906,11 @@ class ViewController: UIViewController {
             self.present(gameOverController, animated: true)
         })
         
-        
         leftArrow.isUserInteractionEnabled = false
         upArrow.isUserInteractionEnabled = false
         rightArrow.isUserInteractionEnabled = false
         downArrow.isUserInteractionEnabled = false
         btnRotate.isUserInteractionEnabled = false
-    
     }
 }
 

@@ -182,11 +182,7 @@ extension ControllerPresenter {
             }
             if rowIsComplete { completeRows.append(index)}
         }
-        if completeRows.isEmpty {
-            print("No complete rows")
-        }
-        else {
-            print("Complete rows: \(completeRows)")
+        if !completeRows.isEmpty {
             removeCompleteRows(rows: completeRows)
             updateLevel(lines: completeRows.count)
             updateSpeed()

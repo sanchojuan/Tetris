@@ -78,12 +78,22 @@ extension ControllerPresenter {
         var newPosition = currentPiecePosition
         
         if currentPieceRotation == 0 {
-            newPosition[0][0] += 2
-            newPosition[0][1] += 2
-            newPosition[1][0] += 1
-            newPosition[1][1] += 1
-            newPosition[3][0] -= 1
-            newPosition[3][1] -= 1
+            if currentPiecePosition[0][0] == 0 { //First row
+                newPosition[0][0] += 3
+                newPosition[0][1] += 2
+                newPosition[1][0] += 2
+                newPosition[1][1] += 1
+                newPosition[2][0] += 1
+                newPosition[3][1] -= 1
+            }
+            else {
+                newPosition[0][0] += 2
+                newPosition[0][1] += 2
+                newPosition[1][0] += 1
+                newPosition[1][1] += 1
+                newPosition[3][0] -= 1
+                newPosition[3][1] -= 1
+            }
         }
         else if currentPieceRotation == 90 {
             newPosition[0][0] -= 2
